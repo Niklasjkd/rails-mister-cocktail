@@ -1,4 +1,6 @@
 class Cocktail < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   has_many :ingredients, through: :doses
   has_many :doses, dependent: :destroy
 
