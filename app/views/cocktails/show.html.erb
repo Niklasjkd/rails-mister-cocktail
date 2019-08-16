@@ -1,18 +1,29 @@
-<div class="container">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+  <%= @cocktail.name %>
+</div>
 
-  <h1><%= @cocktail.name %></h1>
 
-  <ul class="list-group list-group-flush">
+  <div class="d-flex justify-content-between">
 
-    <% @cocktail.doses.each do |dose| %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Ingredients</div>
+      <ul class="list-group list-group-flush">
+       <% @cocktail.doses.each do |dose| %>
 
-    <li class="list-group-item"> <%= dose.ingredient.name %> <%= dose.description %> </li>
+       <li class="list-group-item"> <%= dose.ingredient.name %> <%= dose.description %> </li>
 
-    <% end %>
+       <% end %>
 
-    <li class="list-group-item"> <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) %> </li>
-  </ul>
+       <li class="list-group-item"> <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) %> </li>
 
-  <%= link_to "EDIT Cocktail", edit_cocktail_path(@cocktail) %>
-  <%= link_to "SEE ALL cocktails", cocktails_path %>
+     </ul>
+
+
+   </div>
+
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  <%= button_to "EDIT Cocktail", edit_cocktail_path(@cocktail), type: "button", class: "btn btn-secondary"%>
+  <%= button_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete, type: "button", class: "btn btn-secondary"%>
+  <%= button_to "See all Cocktails", root_path, method: :get, type: "button", class: "btn btn-secondary"%>
 </div>

@@ -1,13 +1,12 @@
-<div class="container">
 
-  <h1>COCKTAILS</h1>
+<h1 class="m-4">Cocktails</h1>
 
-<div class="cards" style="grid-template-columns: 1fr 1fr 1fr 1fr; display: grid; grid-gap: 16px;">
+<div class="cards" style="grid-template-columns: 1fr 1fr 1fr; display: grid; grid-gap: 16px;">
   <% @cocktails.each do |cocktail| %>
 
 
 
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="font-weight: 100;">
     <%= cl_image_tag cocktail.photo, height: 200, crop: :fill %>
     <div class="card-body">
       <h5 class="card-title"> <%= cocktail.name %></h5>
@@ -28,12 +27,10 @@
 
   <% end %>
 
-<div class="card" style="width: 18rem;">
+  <div class="card">
     <div class="card-body">
 
       <%= link_to "ADD Cocktail", new_cocktail_path %>
     </div>
   </div>
 </div>
-</div>
-
