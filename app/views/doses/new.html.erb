@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>New Ingredient</h1>
+
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :ingredient, collection: Ingredient.all %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "submit" %>
+  <% end %>
+</div>
